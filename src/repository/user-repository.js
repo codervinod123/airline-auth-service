@@ -12,28 +12,6 @@ class UserRepository{
        }
     }
 
-    async getUser(userId){
-      try {
-          const user=await User.findByPk(userId);
-          return user;
-      } catch (error) {
-         console.log("Error has occured at repo level");
-         throw {error};
-      }
-    }
-
-    async deleteUser(userId){
-      try {
-           return await User.destroy({
-            where:{
-               id:userId
-            }
-           })
-      } catch (error) {
-         console.log("Error has occured at repo level");
-         throw {error};
-      }
-    }
  
 }
 
