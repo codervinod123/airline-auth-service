@@ -1,8 +1,8 @@
 const express=require('express');
 const router=express.Router();
 
-const appRouter=require('./v1/index');
+const v1Routes=require('./v1/index');
 
-router.use('/v1' ,appRouter);
+router.use('/v1' ,v1Routes);
 
 module.exports=router

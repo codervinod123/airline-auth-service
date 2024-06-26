@@ -10,7 +10,8 @@
 - Move Models seeders migrations and config inside src folder
 - Change the src/config/config.json according to below
 - inside the src/config folder create a new file config.json and the copy and paste  the following code and put the database name and password according to you
-```"development": {
+```
+"development": {
     "username": <YOUT_USER_NAME>,
     "password": <YOUR_PASSWORD>,
     "database": <YOUR_DATA_BASE_NAME>,

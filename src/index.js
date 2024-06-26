@@ -3,7 +3,7 @@ const bodyParser=require('body-parser')
 
 const {PORT}=require('./config/serverConfig')
 
-const apiRouter=require('./routes/index')
+const apiRoutes=require('./routes/index')
 
 const AuthService=()=>{
 
@@ -14,7 +14,7 @@ const AuthService=()=>{
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended : true}));
 
-     app.use('/api', apiRouter)
+     app.use('/api', apiRoutes)
 
    
     app.listen(PORT,async()=>{
