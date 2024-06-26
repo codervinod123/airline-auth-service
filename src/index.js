@@ -22,7 +22,20 @@ const AuthService = () => {
     const UserService=require('./services/user-service');
     const userService=new UserService();
 
+    const UserRepository=require('./repository/user-repository');
+    const userRepository=new UserRepository();
+
+
+
     app.listen(PORT, async () => {
+
+        
+
+        // const token=await userService.signIn('vinod793948@gmail.com' ,'vinod@123');
+        // console.log(token);
+
+        // const res=await userService.verifyToken(token);
+        // console.log(res);
 
         //   const jwt=await userService.createJWT({email:'Vinodpr737947',id:1});
         //   console.log(jwt);

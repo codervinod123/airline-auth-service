@@ -12,6 +12,16 @@ class UserRepository{
        }
     }
 
+    async userByEmail(userEmail){
+      try {
+         const user=await User.findOne({where:{email:userEmail}})
+         return user;
+      } catch (error) {
+          console.log("Error has occured at repo level  hnn");
+          throw {error};
+      }
+    }
+
  
 }
 
