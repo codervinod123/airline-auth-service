@@ -17,7 +17,8 @@ const AuthService = () => {
 
     app.use('/api', apiRoutes)
 
-    const { User } = require('./models/index');
+    const { User,Role } = require('./models/index');
+
 
     const UserService=require('./services/user-service');
     const userService=new UserService();
@@ -25,10 +26,21 @@ const AuthService = () => {
     const UserRepository=require('./repository/user-repository');
     const userRepository=new UserRepository();
 
-
+    const db=require('./models/index');
 
     app.listen(PORT, async () => {  
-        // await User.destroy({where:{id:14}});
+       
+    // const u1=await User.findByPk(12);
+    // const r1=await Role.findAll();
+
+    // // u1.addRole(r1);
+    // const User1=await u1.getRoles();
+    // console.log(User1);
+    
+    
+     
+
+
         console.log(`App is running on port ${PORT}`);
     })
 
