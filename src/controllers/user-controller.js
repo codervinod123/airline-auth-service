@@ -7,7 +7,7 @@ const create=async(req,res)=>{
         return res.status(201).json({
             data : user,
             success : true,
-            message : 'User are created successfully',
+            message : 'User created successfully',
             error : {}
         })
     } catch (error) {
@@ -27,20 +27,41 @@ const signin=async(req,res)=>{
             data:user,
             success:true,
             error:{},
-            message:"Ho gaya mata ki kripa se"
+            message:"User has signed in Successfully"
         })
     } catch (error) {
         return res.status(500).json({
             data:null,
             success:false,
             error:error,
-            message:"Nai hua "
+            message:"User are not able to sign in successfully"
         }) 
     }
+}
+
+const isAuthenticated=async(req,res)=>{
+       try {
+            const token=req.headers['access-token'];
+            const isVerified=await userService.isAuthenticated(token);
+            return res.status(200).json({
+                data:isVerified,
+                success:true,
+                message:'Token athenticated successfully',
+                error:null
+            });
+       } catch (error) {
+        return res.status(500).json({
+            data:null,
+            success:false,
+            error:error,
+            message:"User are not Authenticated"
+        }) 
+       }
 }
 
 
 module.exports={
     create,
-    signin
+    signin,
+    isAuthenticated
 }

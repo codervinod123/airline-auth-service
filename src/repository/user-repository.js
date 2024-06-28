@@ -7,7 +7,7 @@ class UserRepository{
          const user=await User.create(data);
          return user;
        } catch (error) {
-          console.log("Error has occured at repo level");
+          console.log("Error has occured at repo level while creating user");
           throw {error};
        }
     }
@@ -17,7 +17,7 @@ class UserRepository{
          const user=await User.findOne({where:{email:userEmail}})
          return user;
       } catch (error) {
-          console.log("Error has occured at repo level  hnn");
+          console.log("Error has occured at repo level while finding user with email id");
           throw {error};
       }
     }
