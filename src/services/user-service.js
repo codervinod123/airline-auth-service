@@ -59,8 +59,6 @@ class UserService {
     }
   }
 
-  
-
   async createToken(user) {
     try {
       const jwtToken = jwt.sign(user, JWT_SECRET,{expiresIn:'1d'});
@@ -89,8 +87,6 @@ class UserService {
         throw { error };
       }
   }
-
-
 
 }
 
