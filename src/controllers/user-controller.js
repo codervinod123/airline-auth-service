@@ -59,9 +59,29 @@ const isAuthenticated=async(req,res)=>{
        }
 }
 
+const isAdmin=async(req,res)=>{
+    try {
+         const isAdmin=await userService.isAdmin(req.body.id);
+         return res.status(200).json({
+             data: isAdmin,
+             success:true,
+             message:'User Role has fetched successsfully',
+             error:null
+         });
+    } catch (error) {
+     return res.status(500).json({
+         data:null,
+         success:false,
+         error:error,
+         message:"User role can not verified"
+     }) 
+    }
+}
+
 
 module.exports={
     create,
     signin,
-    isAuthenticated
+    isAuthenticated,
+    isAdmin
 }

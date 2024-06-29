@@ -21,6 +21,10 @@ router.get('/isauthenticated',
         UserController.isAuthenticated    
 );
 
+router.get('/isadmin',
+            UserController.isAdmin
+        );
+
 
 
 

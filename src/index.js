@@ -30,8 +30,8 @@ const AuthService = () => {
 
     app.listen(PORT, async () => {  
        
-    // const u1=await User.findByPk(29);
-    // const r1=await Role.findByPk(1);
+    // const u1=await User.findByPk(30);
+    // const r1=await Role.findByPk(2);
 
     // u1.addRole(r1);
     // const User1=await u1.getRoles();

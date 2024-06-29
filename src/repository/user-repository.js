@@ -1,4 +1,4 @@
-const {User}=require('../models/index');
+const {User,Role}=require('../models/index');
 
 class UserRepository{
     
@@ -22,6 +22,17 @@ class UserRepository{
       }
     }
 
+    async isAdmin(userId){
+      try {
+           const user=await User.findByPk(userId);
+           const role=await Role.findByPk(2);
+           const res=await user.hasRole(role);
+           return res;
+      } catch (error) {
+         console.log("Error has occured at repo level while checking for isAdmin");
+         throw {error};
+      }
+    }
  
 }
 
