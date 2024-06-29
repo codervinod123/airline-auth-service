@@ -1,7 +1,8 @@
 const express=require('express');
 const router=express.Router();
 
-const {AuthRequestValidators}=require('../../middlewares/index');
+const {AuthRequestValidators,TokenVerification}=require('../../middlewares/index');
+
 
 const UserController=require('../../controllers/user-controller');
 
@@ -16,7 +17,8 @@ router.post('/signin',
 );
 
 router.get('/isauthenticated',
-            UserController.isAuthenticated    
+        TokenVerification.TokenVerification,
+        UserController.isAuthenticated    
 );
 
 

@@ -30,17 +30,13 @@ const AuthService = () => {
 
     app.listen(PORT, async () => {  
        
-    // const u1=await User.findByPk(12);
-    // const r1=await Role.findAll();
+    // const u1=await User.findByPk(29);
+    // const r1=await Role.findByPk(1);
 
-    // // u1.addRole(r1);
+    // u1.addRole(r1);
     // const User1=await u1.getRoles();
     // console.log(User1);
     
-    
-     
-
-
         console.log(`App is running on port ${PORT}`);
     })
 
