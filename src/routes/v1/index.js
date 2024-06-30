@@ -26,6 +26,14 @@ router.get('/isadmin',
         );
 
 
+router.get('/isAirlinebusiness',
+            UserController.isAirlinebusiness
+) 
+
+router.get('/isCustomer',
+    UserController.isCustomer
+) 
+
 
 
 module.exports=router

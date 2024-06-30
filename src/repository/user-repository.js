@@ -25,11 +25,52 @@ class UserRepository{
     async isAdmin(userId){
       try {
            const user=await User.findByPk(userId);
+
+           if(!user){
+            console.log("Invalid userId");
+            throw {error:"User is not present in database"};
+           }
+
            const role=await Role.findByPk(2);
            const res=await user.hasRole(role);
            return res;
       } catch (error) {
          console.log("Error has occured at repo level while checking for isAdmin");
+         throw {error};
+      }
+    }
+
+    async isAirlinebusiness(userId){
+      try {
+          const user=await User.findByPk(userId);
+
+          if(!user){
+            console.log("Invalid userId");
+            throw {error:"User is not present in database"};
+          }
+
+          const role=await Role.findByPk(3);
+          return await user.hasRole(role);
+      } catch (error) {
+         console.log("Error has occured at repo level while checking for is Airline Business");
+         throw {error};
+      }
+    }
+
+
+    async isCustomer(userId){
+      try {
+          const user=await User.findByPk(userId);
+
+          if(!user){
+            console.log("Invalid userId");
+            throw {error:"User is not present in database"};
+          }
+          
+          const role=await Role.findByPk(1);
+          return await user.hasRole(role);
+      } catch (error) {
+         console.log("Error has occured at repo level while checking for User is Customer");
          throw {error};
       }
     }

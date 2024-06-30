@@ -78,10 +78,49 @@ const isAdmin=async(req,res)=>{
     }
 }
 
+const isAirlinebusiness=async(req,res)=>{
+      try {
+          const isAirlineBusiness=await userService.isAirlinebusiness(req.body.id);
+          return res.status(200).json({
+            data:isAirlineBusiness,
+            successs:true,
+            message:'Fetched wheather a user is Airline Business or not',
+            error:{}
+          })
+      } catch (error) {
+        return res.status(500).json({
+            data:null,
+            successs:false,
+            message:'Can not Fetched wheather a user is Airline Business or not',            
+            error:error
+          })
+      }
+}
+
+const isCustomer=async(req,res)=>{
+    try {
+        const isCustomer=await userService.isCustomer(req.body.id);
+          return res.status(200).json({
+            data:isCustomer,
+            successs:true,
+            message:'Fetched wheather a user is Customer or not',
+            error:{}
+        })
+    } catch (error) {
+        return res.status(500).json({
+            data:null,
+            successs:false,
+            message:'Can not Fetched wheather a user is Customer or not',            
+            error:error
+       })
+    }
+}
 
 module.exports={
     create,
     signin,
     isAuthenticated,
-    isAdmin
+    isAdmin,
+    isAirlinebusiness,
+    isCustomer
 }

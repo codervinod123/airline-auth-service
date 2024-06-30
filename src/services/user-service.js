@@ -97,6 +97,27 @@ class UserService {
         throw { error };
     }
   }
+
+  async isAirlinebusiness(userId){
+    try {
+      const response=await this.userRepository.isAirlinebusiness(userId);
+      return response;
+    } catch (error) {
+      console.log("Error occured at service layer while  checking isAirline Business or not");
+      throw { error };
+    }
+  }
+
+  async isCustomer(userId){
+    try {
+      const response=await this.userRepository.isCustomer(userId);
+      return response;
+    } catch (error) {
+      console.log("Error occured at service layer while  checking Customer or not");
+      throw { error };
+    }
+  }
+
   
 }
 
